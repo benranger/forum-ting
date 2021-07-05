@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+}
+.header {
+    padding: 10px 0 10px 10px;
+    background-color:#2c2c2c;
+    color: lightgrey;
+}
+.header h1 {
+    margin: 0;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-top: 20px;
+}
+
+/*Form*/
+#contact-form input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+
+    margin: 5px 0;
+}
+
+.form-name {
+    border-right: 1px solid black;
+    padding: 5px;
+}
+
+.form-message {
+    border-left: 1px solid black;
+    padding: 5px 0 5px 5px;
+}
+
+input:focus-visible {
+    border: none;
+}
+
+#contact-form {
+    border: 1px solid grey;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+#contact-form button {
+    background-color: lightgrey;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+/*Posts*/
+.post {
+    border: 1px solid #0d0d0d;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    color: #0d0d0d;
+    background-color: lightgrey;
+}
+.post-list {
+    background-color: transparent;
+    overflow-y:scroll;
+    width: 50%;
+    height: 500px;
+    border-radius: 10px;
+}
+
+
+

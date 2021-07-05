@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="icon" href="/favicon.ico">
+    <title>Forum</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Forúm Ting</h1>
+    </div>
+    <div class="content">
+        <form method="POST" action="/" id="contact-form">
+            <input type='text' name='name' placeholder='Name' class="form-name">
+            <input type='text' name='message' placeholder='Message' class="form-message" autocomplete="off">
+            <button type='submit'>Post</button>
+        </form>
+        <div class="post-list">
+            <% for (let temp=0; temp<results.length; temp++) { %>
+                <div class="post">
+                    <h3 class="post-name"><%= results[temp]["_doc"]["name"] %></h3>
+                    <p class="post-message"><%= results[temp]["_doc"]["message"] %></p>
+                    <h5 class="post-date"><%= results[temp]["_doc"]["date"] %></p>
+                </div>
+            <% }; %>
+        </div>
+    </div>
+</body>
+</html>
