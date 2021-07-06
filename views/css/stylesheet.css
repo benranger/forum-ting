@@ -54,12 +54,17 @@ input:focus-visible {
 
 #contact-form {
     border: 1px solid grey;
+    color: black;
     margin-top: 5px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    color: black;
     flex-wrap: wrap;
+    
+}
+
+.mobile-contact-form {
+    flex-direction: column;
 }
 
 #contact-form button {
@@ -67,7 +72,7 @@ input:focus-visible {
     border: 1px solid grey;
     color: lightgrey;
     font-weight: bold;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

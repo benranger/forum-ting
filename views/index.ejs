@@ -11,7 +11,7 @@
     <link rel="icon" href="/favicon.ico">
     <title>Forum</title>
 </head>
-<body>
+<body onload="loaded()">
     <div class="header">
         <h1><a href="/">Forúm Ting</a></h1>
     </div>
@@ -31,5 +31,12 @@
             <% }; %>
         </div>
     </div>
+    <script>
+        function loaded() {
+            if (window.innerWidth < 340) {
+                document.getElementById("contact-form").className+=" mobile-contact-form";
+            }
+        }
+    </script>
 </body>
 </html>
