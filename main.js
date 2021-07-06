@@ -6,10 +6,10 @@ const fs = require('fs');
 const path = require('path');
 const aws = require('aws-sdk');
 const PORT = process.env.PORT || 5000;
+const mongoose = require('mongoose');
 
 //DB Config
-const mongoose = require('mongoose');
-const { resolveNaptr } = require('dns');
+
 if (process.env.connString===undefined) process.env.connString = fs.readFileSync(path.normalize(__dirname+'/connectionString.txt'), 'utf8');
 mongoose.connect(process.env.connString, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result)=> {
@@ -36,7 +36,12 @@ app.get('/', function(req, res) {
 
 app.post('/', urlEncodedParser, function(req, res) {
     
-    if (req.body["message"]!=null) {
+    if (req.body["message"]==null || req.body["message"]=='') {
+        Post.find().then((result) => {
+            res.render("index", {results: result.reverse()});
+        }).catch((err) =>{console.log(err)});
+    }
+    else {
         let tempName = "Anonymous";
         if (req.body["name"]!=null && req.body["name"]!='') {
             tempName = req.body["name"];
@@ -55,10 +60,5 @@ app.post('/', urlEncodedParser, function(req, res) {
                 res.render("index", {results: result.reverse()});
             }).catch((err) =>{console.log(err)});
         }).catch((err) => {console.log(err)});
-    }
-    else {
-        Post.find().then((result) => {
-            res.render("index", {results: result.reverse()});
-        }).catch((err) =>{console.log(err)});
     }
 });
