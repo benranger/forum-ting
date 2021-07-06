@@ -19,9 +19,9 @@
         <form method="POST" action="/" id="contact-form">
             <input type='text' name='name' placeholder='Name' class="form-name">
             <input type='text' name='message' placeholder='Message' class="form-message" autocomplete="off">
-            <button type='submit'>Post</button>
+            <button type='submit' id="contact-submit">Post</button>
         </form>
-        <div class="post-list">
+        <div class="post-list" id="post-list">
             <% for (let temp=0; temp<results.length; temp++) { %>
                 <div class="post">
                     <h3 class="post-name"><%= results[temp]["_doc"]["name"] %></h3>
@@ -35,6 +35,8 @@
         function loaded() {
             if (window.innerWidth < 400) {
                 document.getElementById("contact-form").className+=" mobile-contact-form";
+                document.getElementById("contact-submit").className+=" mobile-contact-submit";
+                document.getElementById("post-list").className+=" mobile-post-list";
             }
         }
     </script>
